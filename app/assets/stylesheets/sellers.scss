@@ -1,0 +1,30 @@
+// Place all the styles related to the sellers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.navbar1{
+ 
+ 	width: 120px;
+ 	height: 100vh;
+ 	position: fixed;
+ 	background-color: #f7f7f7;
+ 	transition: 0.4s;
+
+
+}
+
+.nav-link1{
+	
+  font-size: 1.25em
+
+
+}
+
+.nav-link1:active,
+.nav-link1:focus,
+.nav-link1:hover{
+	
+	background-color: #0275d8;
+
+}

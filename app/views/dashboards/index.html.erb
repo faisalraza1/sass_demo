@@ -1,0 +1,9 @@
+<%= render partial: 'seller/products/seller_menu'%>
+<% if seller_signed_in? %>
+  <%= render partial: 'seller/products/seller_products'%>
+<% elsif user_signed_in? %>
+  <%= render partial: 'products/show_products'%>
+<% else %>
+  <%= render partial: 'products/show_products'%>
+<% end %>
+

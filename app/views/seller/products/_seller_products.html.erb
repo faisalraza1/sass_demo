@@ -1,0 +1,29 @@
+<%= render partial: 'seller/products/sidebar'%>
+<div class="container pt-5" >
+<table class="table table-striped ">                         
+  <tr>                          
+    <th scope="col">name</th>
+    <th scope="col">description</th>
+    <th scope="col">price</th>
+    <th scope="col">category</th>
+    <th scope="col">Image</th>
+    <th scope="col">option</th>
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td ><%=product.name %> </td>  
+    <td><%= product.description%></td>  
+    <td><%= product.price %></td>  
+    <td><%= product.category.name %></td> 
+    <td><%= image_tag(product.image.variant(resize_to_limit: [60, 60])) if product.image.attached? %></td> 
+    <td>
+      <div class="btn-group" role="group" aria-label="...">
+      <%= link_to 'Edit', edit_seller_product_path(product), :class => "btn btn-default"%>
+      <%= link_to 'Delete', [:seller,product], method: 'delete', :class => "btn btn-default "%>
+        
+    </div>
+      </td> 
+  </tr>
+<% end %>                        
+</table>
+</div>

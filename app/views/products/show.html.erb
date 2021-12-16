@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="card" style="width: 19rem;margin: 30px 10px;">
+	  <%= image_tag(@product.image , :class=> "card-img-top", :style=> "margin: 10px 10px 10px 10px;height: 100%") if @product.image.attached?  %>  
+	  	<div class="card-body">
+		    <p class="card-text"> Name: <%= @product.name %></p> 
+		    <p class="card-text"> Description: <%= @product.description %></p> 
+		    <p class="card-text"> price: <%= @product.price%></p> 
+		    <p class="card-text"> Seller: <%= @product.seller.first_name %></p> 
+		    <p class="card-text"> Category: <%= @product.category.name%></p> 
+	 		</div>
+	</div>		   
+	 <%= link_to "Add to card", cards_path(:product_id => @product), method: :post, :class => "btn btn-primary" %> <br>
+
+	 <br><%= link_to "Back", dashboards_path ,:class => "btn btn-primary" %>
+</div>

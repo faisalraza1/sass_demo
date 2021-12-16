@@ -1,0 +1,25 @@
+<div class="container pt-5" > 
+<% @products.each_slice(3) do |products| %>      
+    <div class="row row-cols-1 row-cols-md-3"> 
+      <% products.each do |product| %>
+         <div class="card" style="width: 21rem;margin: 10px 10px;">
+                <a href="<%= product_path(product) %>">
+                <%= image_tag(product.image , :class=> "card-img-top", :style=> "margin: 10px 10px 10px 10px;height: 100%") if product.image.attached?  %>  </a> 
+            <div class="card-body">
+                <p class="card-text"> <%=product.name %></p> 
+                <p class="card-text"> <%=product.price %></p>
+            </div>
+        </div>
+      <% end %>                        
+    </div>
+<% end %>
+</div>
+
+<!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div> -->
+
+

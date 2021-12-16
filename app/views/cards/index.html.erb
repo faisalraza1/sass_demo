@@ -1,0 +1,24 @@
+<!-- <p> hello soon will show product</p> -->
+<h3> Listing selected product </h3>
+
+<div class="card" style="width: 20rem;">
+  <% @cards.card_items.each do |card_item| %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= card_item.product.name %>
+                                    <%= card_item.product.price %>
+                                    <%= image_tag(card_item.product.image.variant(resize_to_limit: [60, 60])) if card_item.product.image.attached? %>
+                                     Qty:&nbsp<%= card_item.quantity %>
+                                     &nbsp<%= link_to 'Remove item', remove_item_cards_path(:card_item_id => card_item), method: :post, :class => "btn btn-default"%>
+      </li>
+    </ul>
+  <% end %>
+</div>
+
+<br>
+<div class="card border-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header bg-transparent border-secondary">PRICE DETAILS</div>
+    <p class="card-text">The  total item is => <%= @cards.card_items.size %></p>
+  <div class="card-footer bg-transparent border-secondary">Total Amount =>
+      <%= total_price %>
+  </div>
+</div>    
