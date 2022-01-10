@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="pop-custom"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+ <%= form_for(Order.new, url: order_cards_path, remote: true, method: :post) do |f| %>
+
+  <div class="field">
+    <%= f.label :Mobile_number %><br />
+    <%= f.text_field :mobile %>
+    <%#= f.hidden_field 'user_id', user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Address %><br />
+    <%= f.text_field :address %>
+  </div>
+     
+  <div class="modal-footer"><br>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "place order", class: "btn btn-primary" %>
+  <% end %>
+      </div>
+    </div>
+  </div>
+</div>
