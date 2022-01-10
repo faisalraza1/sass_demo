@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 resources :cards do
   collection do 
     post :remove_item
+    post :order
   end
 end
 
