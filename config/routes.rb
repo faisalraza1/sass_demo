@@ -5,8 +5,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :seller do
-    resources :products
+    resources :products do 
+      collection do 
+        post :ordered_product
+      end
+    end
   end
+
   root to: 'dashboards#index'
 
   devise_for :sellers

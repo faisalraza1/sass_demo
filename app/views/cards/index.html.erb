@@ -24,11 +24,10 @@
 </div>
 
 <%= link_to "Order now", "javascript:void(0)",  :class => "btn btn-primary" , id: "order"%>
- <%= render partial: "order_form", locals: { user_id: @cards.user.id} %>
+ <%= render partial: "order_form", locals: { user_id: @cards.user.id }%>
 
 <div id="popcontent"></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
 <script type="text/javascript">
   $(document).ready ( function () {
     $("#order").click(function(){

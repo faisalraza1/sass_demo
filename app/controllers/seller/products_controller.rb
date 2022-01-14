@@ -1,5 +1,4 @@
-class Seller::ProductsController < ApplicationController
-  
+class Seller::ProductsController < ApplicationController 
   def index
     @products = current_seller.products
   end
@@ -7,7 +6,7 @@ class Seller::ProductsController < ApplicationController
   def create
     @product = current_seller.products.create(product_params)
     @product.save
-    redirect_to dashboards_path
+    redirect_to seller_products_path
   end
 
   def new
@@ -15,7 +14,7 @@ class Seller::ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id]) 
+    @product = Product.find(params[:id])
   end
 
   def update
@@ -30,9 +29,13 @@ class Seller::ProductsController < ApplicationController
     redirect_to seller_products_path
   end
 
+   def ordered_product
+    @seller = current_seller
+    @seller_products = @seller.show_ordered_product(@seller)
+   end
+
 private
    def product_params
     params.require(:product).permit(:name,:description,:price,:category_id,:image)
    end
-
 end
