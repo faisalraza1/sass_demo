@@ -5,6 +5,8 @@
    </ul>
 
    <ul class="navbar-nav d-flex flex-column mt-5 w-100">
-        <li><%= link_to "Orders", new_seller_product_path, :class => "nav-item w-150 nav-link1 text-dark pl-4" %> </li>
+        <li><%= link_to "Orders",  ordered_product_seller_products_path,method: :post, remote: true, :class => "nav-item w-150 nav-link1 text-dark pl-4" %> </li>
    </ul>
 </nav>
+
+<div id="ordered_product"></div>

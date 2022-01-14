@@ -8,6 +8,7 @@ class CardsController < ApplicationController
   def create
     current_card
     add_to_item
+    flash[:notice] = 'The cart is created and ,you have insert the item successfully'
     redirect_to(cards_path) and return
   end
 
@@ -25,11 +26,15 @@ class CardsController < ApplicationController
 
   def order
     order = Order.create(order_params)
-    order.save
-    card = current_card
-    card.items.update(itemable_id: order.id, itemable_type: 'Order')
-    flash[:notice] = 'you have ordered successfully'
-    redirect_to(dashboards_path) and return
+    if order.save
+      card = current_card
+      card.items.update(itemable_id: order.id, itemable_type: 'Order')
+      flash[:notice] = 'you have ordered successfully'
+      redirect_to(dashboards_path) and return
+    else
+      flash[:notice] = 'Please check order is not created'
+      redirect_to(cards_path) and return
+    end
   end
 
   private
@@ -40,8 +45,6 @@ class CardsController < ApplicationController
     return if card.product_present(product)
 
     card.items.create(product_id: params[:product_id], quantity: 1)
-    flash[:notice] = 'The cart is created and ,you have insert the item successfully'
-    redirect_to(product_path(params[:product_id])) and return
   end
 
   def order_params
