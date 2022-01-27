@@ -1,9 +1,9 @@
 <!-- Modal -->
 <div class="modal fade" id="pop-custom"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content " style= "width:120%;  ">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Odered Product</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ordered Product</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -26,6 +26,7 @@
 					    <td><%= seller_product.product.price %></td>  
 					    <td><%= seller_product.product.category.name %></td> 
 					    <td><%= image_tag(seller_product.product.image.variant(resize_to_limit: [60, 60])) if seller_product.product.image.attached? %></td> 
+					    <td> <%=  seller_product.itemable.user.email %></td>
 					    <td></td>
 					  </tr>
 				  <% end %>                        

@@ -8,5 +8,4 @@ class User < ApplicationRecord
 
   has_one :card
   has_many :orders
-  has_many :cart_items, through: :orders
 end
