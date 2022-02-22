@@ -8,4 +8,9 @@ class User < ApplicationRecord
 
   has_one :card
   has_many :orders
+
+  def order_product
+    orders = self.orders
+    orders.map { |order| order.items.where(itemable_id: order.id) }.flatten
+  end
 end

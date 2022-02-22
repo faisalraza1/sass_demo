@@ -30,6 +30,7 @@
     <% elsif user_signed_in? %>
     <li class="nav-item">
       <%= link_to 'signout', destroy_user_session_path, :class => "btn btn-primary " ,method: :delete %>
+      <%= link_to 'My order', user_ordered_product_products_path, method: :post ,:class => "btn btn-primary "  %>
     </li>
     <% else %>
     <li class="nav-item">

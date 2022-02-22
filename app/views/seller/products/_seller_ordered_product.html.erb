@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="pop-custom"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content " style= "width:120%;  ">
+    <div class="modal-content " style= "width:135%;  ">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Ordered Product</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -17,6 +17,7 @@
 				    <th scope="col">price</th>
 				    <th scope="col">category</th>
 				    <th scope="col">Image</th>
+				    <th scope="col">Quantity</th>
 				    <th scope="col">user</th>
 				  </tr>
 			    <% seller_products.map do |seller_product| %>
@@ -26,7 +27,8 @@
 					    <td><%= seller_product.product.price %></td>  
 					    <td><%= seller_product.product.category.name %></td> 
 					    <td><%= image_tag(seller_product.product.image.variant(resize_to_limit: [60, 60])) if seller_product.product.image.attached? %></td> 
-					    <td> <%=  seller_product.itemable.user.email %></td>
+					    <td><%= seller_product.quantity %></td> 
+					    <td> <%= seller_product.itemable.user.email %></td>
 					    <td></td>
 					  </tr>
 				  <% end %>                        

@@ -1,0 +1,22 @@
+<div class="modal-body">    
+	<div class="container pt-5" >
+			<table class="table table-striped ">                         
+				<tr>                          
+				  <th scope="col">name</th>
+				  <th scope="col">price</th>
+				  <th scope="col">Image</th>
+				  <th scope="col">Quantity</th>
+				  </tr>
+			    <% @order_product.map do |order_product| %>
+				    <tr>
+					    <td ><%= order_product.product.name %> </td>  
+					    <td><%= order_product.product.price %></td>  
+					    <td><%= image_tag(order_product.product.image.variant(resize_to_limit: [60, 60])) if order_product.product.image.attached? %></td> 
+					    <td><%= order_product.quantity %></td>  
+					    <td></td>
+					  </tr>
+				  <% end %>                        
+				</table>
+			</div>
+	</div>
+</div>
